@@ -341,69 +341,23 @@
 
         <div class="content has-text-justified" style="margin-bottom: 1.25em;">
           <p>
-            <span style="background-color: #eee7ff; padding: 2px 4px; border-radius: 3px;"><strong>THUD</strong></span>
-            probes whether models truly verify the audio stream by counterfactually modifying the audio
-            while keeping the visual event fixed. Starting from natural sounded videos, THUD constructs
-            <span style="background-color: #eee7ff; padding: 2px 4px; border-radius: 3px;"><strong>Shift</strong></span>,
-            <span style="background-color: #eee7ff; padding: 2px 4px; border-radius: 3px;"><strong>Mute</strong></span>,
-            and
-            <span style="background-color: #eee7ff; padding: 2px 4px; border-radius: 3px;"><strong>Swap</strong></span>
-            interventions to test temporal synchronization, audio existence, and audio-visual consistency.
+            THUD converts naturally correlated videos into counterfactual probes. We annotate visual
+            and acoustic events, then apply Shift, Mute, and Swap interventions to test whether models
+            verify timing, sound presence, and audio-visual consistency rather than relying on visual priors.
           </p>
         </div>
 
         <img src="static/images/fig9_pipeline.png" width="100%" alt="THUD annotation and intervention pipeline"/>
 
-        <div class="columns is-centered" style="margin-top: 1.5em;">
-
-          <div class="column">
-            <div class="box" style="height: 100%;">
-              <h3 class="title is-4">Shift</h3>
-              <p>
-                The audio track is moved earlier or later relative to the visual event.
-              </p>
-              <p class="is-size-6" style="margin-top: 0.5em;">
-                Tests whether models detect <strong>temporal misalignment</strong>.
-              </p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="box" style="height: 100%;">
-              <h3 class="title is-4">Mute</h3>
-              <p>
-                The audio track is removed while the visual event remains unchanged.
-              </p>
-              <p class="is-size-6" style="margin-top: 0.5em;">
-                Tests whether models hallucinate <strong>absent sounds</strong>.
-              </p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="box" style="height: 100%;">
-              <h3 class="title is-4">Swap</h3>
-              <p>
-                The original audio is replaced with sound from another video.
-              </p>
-              <p class="is-size-6" style="margin-top: 0.5em;">
-                Tests whether models verify <strong>cross-modal consistency</strong>.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <p class="is-size-6 has-text-centered" style="margin-top: 1em;">
-          By breaking natural audio-visual correlations, THUD distinguishes genuine audio verification
-          from visually plausible sound hallucination.
+        <p class="is-size-6 has-text-centered" style="margin-top: 0.75em;">
+          <b>THUD pipeline.</b>
+          Event-time annotation enables controlled interventions that expose visual-semantic shortcuts.
         </p>
 
       </div>
     </div>
   </div>
 </section>
-
 
 <!-- <section class="hero is-small">
   <div class="container is-max-desktop content">
