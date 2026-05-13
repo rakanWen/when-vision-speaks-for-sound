@@ -412,18 +412,4 @@ bibtexcode {
   opacity: 1;
 }
 
-.sup-affil-d,
-.sup-affil-p,
-.sup-affil-w,
-.sup-affil-u {
-  font-style: italic;
-  font-weight: 700;
-  font-size: 0.78em;
-  vertical-align: super;
-  margin-left: 1px;
-}
 
-.sup-affil-d { color: #0B3A75; }
-.sup-affil-p { color: #E77500; }
-.sup-affil-w { color: #B00020; }
-.sup-affil-u { color: #1B7F5A; }
