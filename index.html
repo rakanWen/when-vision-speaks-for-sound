@@ -365,6 +365,95 @@
   </div>
 </section>
 
+
+<!-- Diagnosis Results -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+
+        <h2 class="title is-3">Do Current Models Truly Verify Audio?</h2>
+
+        <div class="content has-text-justified" style="margin-bottom: 1em;">
+          <p>
+            We compare each model on original videos and counterfactual audio interventions.
+            Large drops under 
+            <span style="background-color: #e8f1ff; color: #1f5fbf; padding: 2px 5px; border-radius: 4px;"><strong>Shift</strong></span>,
+            <span style="background-color: #f0e8ff; color: #6b35c9; padding: 2px 5px; border-radius: 4px;"><strong>Mute</strong></span>,
+            and
+            <span style="background-color: #e8f6e8; color: #2f8f3a; padding: 2px 5px; border-radius: 4px;"><strong>Swap</strong></span>
+            reveal shortcut reliance.
+          </p>
+        </div>
+
+        <img src="static/images/tab1.png" width="100%" alt="Paired diagnostic accuracy"/>
+
+        <p class="is-size-6 has-text-centered" style="margin-top: 0.75em;">
+          <b>Diagnostic accuracy.</b>
+          Models appear strong on natural videos but often fail when audio-visual correlations are broken.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Prediction Breakdown -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+
+        <h2 class="title is-3">Errors Collapse Toward a Synced Default</h2>
+
+        <div class="content has-text-justified" style="margin-bottom: 1em;">
+          <p>
+            The failures are systematic: models often assume the audio is synchronized and visually plausible,
+            even when it is muted, swapped, or shifted.
+          </p>
+        </div>
+
+        <img src="static/images/fig4.png" width="100%" alt="Prediction breakdown"/>
+
+        <p class="is-size-6 has-text-centered" style="margin-top: 0.75em;">
+          <b>Prediction breakdown.</b>
+          Errors concentrate around hallucinated synchronized audio rather than random mistakes.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Alignment Results -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+
+        <h2 class="title is-3">Can Targeted Alignment Fix the Shortcut?</h2>
+
+        <div class="content has-text-justified" style="margin-bottom: 1em;">
+          <p>
+            We train Qwen3-Omni with intervention-derived preferences and general video data.
+            Our final recipe improves temporal grounding while preserving general video capability.
+          </p>
+        </div>
+
+        <img src="static/images/tab2.png" width="100%" alt="Alignment recipe comparison"/>
+
+        <p class="is-size-6 has-text-centered" style="margin-top: 0.75em;">
+          <b>Alignment recipe comparison.</b>
+          Preference alignment mitigates temporal shortcut reliance without an alignment tax.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- <section class="hero is-small">
   <div class="container is-max-desktop content">
     <br>
