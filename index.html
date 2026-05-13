@@ -37,6 +37,24 @@
   <link rel="stylesheet" href="./static/css/dataTables.bulma.css">
   <link rel="icon" href="./static/images/lvr_icon.png">
 
+  <style>
+  .sup-affil-d,
+  .sup-affil-p,
+  .sup-affil-w,
+  .sup-affil-u {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 0.78em;
+    vertical-align: super;
+    margin-left: 1px;
+  }
+
+  .sup-affil-d { color: #0B3A75; }
+  .sup-affil-p { color: #E77500; }
+  .sup-affil-w { color: #B00020; }
+  .sup-affil-u { color: #1B7F5A; }
+</style>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -219,7 +237,7 @@
         </p>
       </div>
       <h2 class="subtitle has-text-justified">
-        <span style="font-weight:bold;">Thud probes whether video-capable multimodal models verify the audio stream or hallucinate sounds from visual-semantic priors.
+        <span style="font-weight:bold;">Thud</span> probes whether video-capable multimodal models verify the audio stream or hallucinate sounds from visual-semantic priors.
       </h2>
       <img src="static/images/fig1-motivation.png" alt="Main figure for the project" style="width:100%; height:auto;"/>
 
