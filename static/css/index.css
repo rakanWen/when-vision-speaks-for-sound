@@ -1,5 +1,53 @@
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f6f7fb;
+  --fg: #0d1733;
+  --fg-soft: #4a5570;
+  --border: #e3e6ef;
+  --accent: #2554c7;
+  --accent-soft: #eaf0ff;
+  --shift: #1f5fbf;
+  --mute: #6b35c9;
+  --swap: #2f8f3a;
+  --warn: #e77500;
+  --shadow: 0 2px 10px rgba(15, 23, 42, 0.04), 0 8px 30px rgba(15, 23, 42, 0.06);
+  --shadow-strong: 0 6px 20px rgba(15, 23, 42, 0.08), 0 20px 50px rgba(15, 23, 42, 0.10);
+  --radius: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1020;
+    --bg-soft: #131a31;
+    --fg: #e9ecf5;
+    --fg-soft: #aab2c8;
+    --border: #232b48;
+    --accent: #6f8df5;
+    --accent-soft: #1b2447;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.45);
+    --shadow-strong: 0 6px 20px rgba(0, 0, 0, 0.4), 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+  body, html { background: var(--bg); color: var(--fg); }
+  .hero.is-light, .section.hero.is-light { background-color: var(--bg-soft) !important; color: var(--fg); }
+  .hero, .section { background-color: var(--bg); color: var(--fg); }
+  .navbar { background-color: var(--bg); border-bottom: 1px solid var(--border); }
+  .navbar-item, .navbar-link { color: var(--fg) !important; }
+  .content, .subtitle, .title { color: var(--fg) !important; }
+  .figure-card { background: var(--bg-soft); border-color: var(--border); }
+  .takeaway-card { background: var(--bg-soft); border-color: var(--border); }
+  .takeaway-card p { color: var(--fg-soft); }
+  .tldr-quote { background: var(--bg-soft); border-color: var(--border); color: var(--fg); }
+  pre, code, bibtexcode { background: var(--bg-soft) !important; color: var(--fg) !important; }
+  .bibtex-block pre { background: var(--bg-soft); }
+  .footer { background: var(--bg-soft); color: var(--fg-soft); }
+}
+
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Inter', 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -45,12 +93,57 @@ body {
 }
 
 .publication-title {
-    font-family: 'Castoro', 'Times New Roman', serif;
-    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #0d1733; /* fallback for non-supporting browsers */
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .publication-title {
+    background: linear-gradient(135deg, #0d1733 0%, #2554c7 60%, #6b35c9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .publication-title {
+    background: linear-gradient(135deg, #e9ecf5 0%, #6f8df5 60%, #a585f0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 }
 
 .publication-authors {
-    font-family: 'Google Sans', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* NeurIPS venue badge */
+.venue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2554c7 0%, #6b35c9 100%);
+  color: #fff !important;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(37, 84, 199, 0.30);
+  margin-bottom: 1.1rem;
+}
+.venue-badge::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.25);
 }
 
 .publication-venue {
@@ -70,11 +163,18 @@ body {
 }
 
 .publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
+   color: var(--accent) !important;
+   text-decoration: none;
+   transition: color 0.15s ease;
 }
 
 .publication-authors a:hover {
     text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.publication-authors b {
+  font-weight: 600;
 }
 
 .author-block {
@@ -88,8 +188,41 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  column-gap: 1.25rem;
-  row-gap: 0.75rem;
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.affiliation-logos .author-block {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.affiliation-logos img {
+  height: 38px;
+  width: auto !important;
+  max-width: 180px;
+  object-fit: contain;
+  filter: grayscale(15%);
+  opacity: 0.92;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.affiliation-logos img:hover {
+  filter: none;
+  opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .affiliation-logos img {
+    filter: brightness(0) invert(1) grayscale(15%);
+    opacity: 0.8;
+  }
+  .affiliation-logos img:hover {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -98,11 +231,32 @@ body {
   }
 }
 
-/* Affiliation superscripts: d UC Davis (blue), p Princeton (gold), w UW–Madison (red), u Uniphore (green) */
-.sup-affil-d { color: #003f87; font-weight: 600; }
-.sup-affil-p { color: #e77500; font-weight: 600; }
-.sup-affil-w { color: #c5050c; font-weight: 600; }
-.sup-affil-u { color: #1b7f5a; font-weight: 600; }
+/* Affiliation superscripts: single canonical definition.
+   d = UC Davis (Davis blue), p = Princeton (orange), w = UW–Madison (red), u = Uniphore (green) */
+.sup-affil-d,
+.sup-affil-p,
+.sup-affil-w,
+.sup-affil-u {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.72em;
+  line-height: 1;
+  vertical-align: super;
+  margin-left: 1px;
+  position: relative;
+  top: -0.15em;
+}
+.sup-affil-d { color: #0B3A75; }
+.sup-affil-p { color: #E77500; }
+.sup-affil-w { color: #B00020; }
+.sup-affil-u { color: #1B7F5A; }
+
+@media (prefers-color-scheme: dark) {
+  .sup-affil-d { color: #6f8df5; }
+  .sup-affil-p { color: #ffb066; }
+  .sup-affil-w { color: #ff7a87; }
+  .sup-affil-u { color: #69c98a; }
+}
 
 .publication-affiliations {
   font-family: 'Google Sans', sans-serif;
@@ -413,3 +567,329 @@ bibtexcode {
 }
 
 
+
+
+/* =====================================================================
+   Refresh (added) — modern paper-page components
+   ===================================================================== */
+
+/* ----- TL;DR quote / hero question ----- */
+.tldr-quote {
+  position: relative;
+  margin: 2.5rem auto 2rem;
+  padding: 1.6rem 1.8rem 1.6rem 2.2rem;
+  max-width: 880px;
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(135deg, rgba(37,84,199,0.05) 0%, rgba(107,53,201,0.05) 100%);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+.tldr-quote .tldr-eyebrow {
+  display: inline-block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.tldr-quote .tldr-text {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  font-size: 1.45rem;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .tldr-quote .tldr-text { font-size: 1.15rem; }
+  .tldr-quote { padding: 1.2rem 1.2rem 1.2rem 1.4rem; }
+}
+
+/* ----- Publication action buttons (per-action color) ----- */
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.publication-links .link-block a.button {
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  font-weight: 600;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.92rem;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 1px 2px rgba(15,23,42,0.06), 0 4px 12px rgba(15,23,42,0.06);
+}
+.publication-links .link-block a.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(15,23,42,0.08), 0 12px 24px rgba(15,23,42,0.12);
+}
+.publication-links .link-block a.button .icon { margin-right: 0.3em; }
+
+.btn-paper  { background: #b3261e !important; color: #fff !important; }
+.btn-paper:hover  { background: #971c15 !important; }
+.btn-code   { background: #1f2937 !important; color: #fff !important; }
+.btn-code:hover   { background: #0d1733 !important; }
+.btn-model  { background: #f5b400 !important; color: #1f1500 !important; }
+.btn-model:hover  { background: #e2a600 !important; }
+.btn-data   { background: #2554c7 !important; color: #fff !important; }
+.btn-data:hover   { background: #1c429e !important; }
+.btn-demo   { background: #2f8f3a !important; color: #fff !important; }
+.btn-demo:hover   { background: #267031 !important; }
+
+/* ----- Figure card wrapper ----- */
+.figure-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-top: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+.figure-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.figure-card.is-pad img { padding: 1.2rem; }
+.figure-caption {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--fg-soft);
+  margin-top: 0.8rem;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.figure-caption b { color: var(--fg); font-weight: 700; }
+
+/* ----- Highlight chips used in body text (Shift / Mute / Swap, etc.) -----
+   display: inline (not inline-block) so long-clause highlights wrap across
+   lines instead of forcing big justify gaps. box-decoration-break: clone
+   makes the rounded background apply per-line fragment. */
+.chip {
+  display: inline;
+  padding: 1px 7px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.92em;
+  letter-spacing: 0;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+}
+.chip-shift { background: #e8f1ff; color: #1f5fbf; }
+.chip-mute  { background: #f0e8ff; color: #6b35c9; }
+.chip-swap  { background: #e8f6e8; color: #2f8f3a; }
+.chip-warn  { background: #fff1e6; color: #b35400; }
+.chip-good  { background: #e8f5e8; color: #2f7a36; }
+.chip-cool  { background: #eee7ff; color: #5b2cb0; }
+@media (prefers-color-scheme: dark) {
+  .chip-shift { background: rgba(111,141,245,0.18); color: #aebcff; }
+  .chip-mute  { background: rgba(165,133,240,0.18); color: #cdb6ff; }
+  .chip-swap  { background: rgba(105,201,138,0.18); color: #9ee0b3; }
+  .chip-warn  { background: rgba(231,117,0,0.18);   color: #ffb066; }
+  .chip-good  { background: rgba(105,201,138,0.18); color: #9ee0b3; }
+  .chip-cool  { background: rgba(165,133,240,0.18); color: #cdb6ff; }
+}
+
+/* ----- Key takeaways cards ----- */
+.takeaways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  margin: 1.5rem auto 0.5rem;
+}
+@media (max-width: 900px) { .takeaways-grid { grid-template-columns: 1fr; } }
+
+.takeaway-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.3rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.2s ease;
+  text-align: left;
+  position: relative;
+}
+.takeaway-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+.takeaway-card .takeaway-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+}
+.takeaway-card.t-finding .takeaway-icon { background: #fff1e6; color: #b35400; }
+.takeaway-card.t-method  .takeaway-icon { background: #eaf0ff; color: #2554c7; }
+.takeaway-card.t-result  .takeaway-icon { background: #e8f5e8; color: #2f7a36; }
+@media (prefers-color-scheme: dark) {
+  .takeaway-card.t-finding .takeaway-icon { background: rgba(231,117,0,0.18); color: #ffb066; }
+  .takeaway-card.t-method  .takeaway-icon { background: rgba(111,141,245,0.18); color: #aebcff; }
+  .takeaway-card.t-result  .takeaway-icon { background: rgba(105,201,138,0.18); color: #9ee0b3; }
+}
+.takeaway-card h4 {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0 0 0.4rem;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+.takeaway-card p {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+/* ----- Data-release callout ----- */
+.callout {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  max-width: 760px;
+  margin: 0.5rem auto;
+  padding: 1.2rem 1.4rem;
+  background: linear-gradient(135deg, rgba(231,117,0,0.06) 0%, rgba(37,84,199,0.05) 100%);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--warn);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+.callout-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.callout-body { flex: 1; }
+.callout-body .callout-badge {
+  display: inline-block;
+  background: var(--warn);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.callout-body h4 {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 0.3rem;
+  color: var(--fg);
+}
+.callout-body p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--fg-soft);
+  margin: 0;
+}
+
+/* ----- BibTeX block + copy button ----- */
+.bibtex-block {
+  position: relative;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.3rem;
+  box-shadow: var(--shadow);
+  margin-top: 1rem;
+}
+.bibtex-block pre {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.bibtex-block bibtexcode {
+  font: 13px/1.55 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--fg);
+}
+.bibtex-copy {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--fg-soft);
+  border-radius: 8px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.bibtex-copy:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.bibtex-copy.copied {
+  color: #fff;
+  background: #2f8f3a;
+  border-color: #2f8f3a;
+}
+
+/* ----- Section title accent ----- */
+.section-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  color: var(--fg) !important;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin: 0.5rem auto 0;
+  background: linear-gradient(90deg, var(--accent) 0%, #6b35c9 100%);
+  border-radius: 999px;
+}
+
+/* ----- Footer polish ----- */
+.footer {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+}
+
+/* ----- Navbar polish ----- */
+.navbar {
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+}
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background: rgba(11,16,32,0.75);
+  }
+}
+
+/* Subtle global polish */
+.hero.is-light, .section.hero.is-light {
+  background-color: var(--bg-soft);
+}
+.title.is-3 { letter-spacing: -0.015em; }
+.subtitle, .content p { line-height: 1.65; }

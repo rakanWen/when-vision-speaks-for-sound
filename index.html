@@ -24,7 +24,9 @@
   })(window, document, 'script', 'dataLayer', 'GTM-MFCT45H');</script>
   <!-- End Google Tag Manager -->
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -36,29 +38,6 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="stylesheet" href="./static/css/dataTables.bulma.css">
   <link rel="icon" href="./static/images/lvr_icon.png">
-
- <style>
-  .sup-affil-d,
-  .sup-affil-p,
-  .sup-affil-w,
-  .sup-affil-u {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 0.82em;
-    line-height: 1;
-    vertical-align: super;
-    margin-left: 2px;
-    position: relative;
-    top: -0.18em;
-    opacity: 0.85;
-  }
-
-  .sup-affil-d { color: #0B3A75; }
-  .sup-affil-p { color: #E77500; }
-  .sup-affil-w { color: #B00020; }
-  .sup-affil-u { color: #1B7F5A; }
-</style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -176,7 +155,7 @@
                     <div class="publication-links">
                       <span class="link-block">
                         <a href="https://github.com/rakanWen/wvs-code/blob/main/wvs-paper.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
+                        class="external-link button is-normal is-rounded btn-paper">
                         <span class="icon">
                           <i class="ai ai-arxiv"></i>
                         </span>
@@ -186,17 +165,17 @@
 
                     <span class="link-block">
                       <a href="https://github.com/rakanWen/wvs-code" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+                      class="external-link button is-normal is-rounded btn-code">
                       <span class="icon">
                         <i class="fab fa-github"></i>
                       </span>
                       <span>Code</span>
                     </a>
                     </span>
-  
+
                     <span class="link-block">
                       <a href="https://huggingface.co/Rakancorle1/wvs-thud-model" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+                      class="external-link button is-normal is-rounded btn-model">
                       <span class="icon">
                         🤗
                       </span>
@@ -206,7 +185,7 @@
 
                 <span class="link-block">
                   <a href="https://github.com/rakanWen/wvs-code/tree/main/data" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
+                  class="external-link button is-normal is-rounded btn-data">
                   <span class="icon">
                     <i class="fas fa-database"></i>
                   </span>
@@ -235,18 +214,41 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <div class="notification is-info is-light" style="margin-top: 2rem; margin-bottom: 2rem;">
-        <p class="subtitle has-text-centered">
-          <h2 class="title is-3 has-text-centered">Are video-capable multimodal models truly audio-grounded, or merely hallucinating sounds from visual-semantic shortcuts?</h2>
 
+      <div class="tldr-quote">
+        <span class="tldr-eyebrow">The question</span>
+        <p class="tldr-text">
+          Are video-capable multimodal models truly <em>audio-grounded</em>,
+          or merely hallucinating sounds from visual-semantic shortcuts?
         </p>
       </div>
-      <h2 class="subtitle has-text-justified">
-        <span style="font-weight:bold;">Thud</span> probes whether video-capable multimodal models verify the audio stream or hallucinate sounds from visual-semantic priors.
+
+      <!-- Key Takeaways -->
+      <div class="takeaways-grid">
+        <div class="takeaway-card t-finding">
+          <span class="takeaway-icon">🐴</span>
+          <h4>Audio-visual Clever Hans</h4>
+          <p>State-of-the-art omni models <b>fake</b> audio understanding by exploiting visual-acoustic priors, rather than verifying the actual audio stream.</p>
+        </div>
+        <div class="takeaway-card t-method">
+          <span class="takeaway-icon">🔬</span>
+          <h4>THUD probes</h4>
+          <p>Three counterfactual edits — <span class="chip chip-shift">Shift</span> <span class="chip chip-mute">Mute</span> <span class="chip chip-swap">Swap</span> — surgically expose temporal, existence, and consistency shortcuts.</p>
+        </div>
+        <div class="takeaway-card t-result">
+          <span class="takeaway-icon">📈</span>
+          <h4>+28 pp with 10K samples</h4>
+          <p>A two-stage preference recipe lifts intervention accuracy by <b>28 percentage points</b> without sacrificing general video/AV-QA performance.</p>
+        </div>
+      </div>
+
+      <h2 class="subtitle has-text-centered" style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.05rem; color: var(--fg-soft);">
+        <span style="font-weight:700; color: var(--fg);">THUD</span> probes whether video-capable multimodal models verify the audio stream or hallucinate sounds from visual-semantic priors.
       </h2>
-      <img src="static/images/fig1-motivation.png" alt="Main figure for the project" style="width:100%; height:auto;"/>
 
-
+      <div class="figure-card is-pad">
+        <img src="static/images/fig1-motivation.png" alt="Main figure for the project"/>
+      </div>
 
       </div>
   </div>
@@ -301,13 +303,11 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-sixths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <h2 class="title is-3 section-title">Abstract</h2>
+        <div class="content has-text-left" style="margin-top: 1.5rem;">
           <p>
-            Despite rapid progress in video-capable MLLMs, we find that their apparent audio understanding in videos is often vision-driven: models rely on visual cues to infer or hallucinate acoustic information, rather than verifying the audio stream. This issue appears across both state-of-the-art open-source omni models and leading closed-source models from providers such as Google and OpenAI. We characterize this failure mode as an audio-visual  <span style="background-color: #fff1e6; padding: 2px 4px; border-radius: 3px;"><strong>Clever Hans effect</strong></span>, in which models appear (falsely) audio-grounded, <span style="background-color: #e8f5e8; padding: 2px 4px; border-radius: 3px;"><strong>but actually exploit visual-acoustic correlations without verifying whether the audio and visual streams are truly aligned.</strong></span> To systematically study this behavior, we introduce <span style="background-color: #eee7ff; padding: 2px 4px; border-radius: 3px;"><strong>Thud</strong></span>, an intervention-driven probing framework based on three counterfactual audio edits: Shift, which tests temporal synchronization; Mute, which tests sound existence; and Swap, which tests audio-visual consistency. Beyond diagnosis, we further study a two-stage alignment recipe: intervention-derived preference pairs teach audio verification, while event-level general video preferences regularize the model against over-specialization. Our best 10K-sample recipe improves <span style="background-color: #e8f5e8; padding: 2px 4px; border-radius: 3px;"><strong>average performance across the three intervention dimensions by 28 percentage points</strong></span>, while slightly improving performance on general video and audio-visual QA benchmarks.
+            Despite rapid progress in video-capable MLLMs, we find that their apparent audio understanding in videos is often vision-driven: models rely on visual cues to infer or hallucinate acoustic information, rather than verifying the audio stream. This issue appears across both state-of-the-art open-source omni models and leading closed-source models from providers such as Google and OpenAI. We characterize this failure mode as an audio-visual <span class="chip chip-warn">Clever Hans effect</span>, in which models appear (falsely) audio-grounded, <span class="chip chip-good">but actually exploit visual-acoustic correlations without verifying whether the audio and visual streams are truly aligned.</span> To systematically study this behavior, we introduce <span class="chip chip-cool">Thud</span>, an intervention-driven probing framework based on three counterfactual audio edits: <span class="chip chip-shift">Shift</span>, which tests temporal synchronization; <span class="chip chip-mute">Mute</span>, which tests sound existence; and <span class="chip chip-swap">Swap</span>, which tests audio-visual consistency. Beyond diagnosis, we further study a two-stage alignment recipe: intervention-derived preference pairs teach audio verification, while event-level general video preferences regularize the model against over-specialization. Our best 10K-sample recipe improves <span class="chip chip-good">average performance across the three intervention dimensions by 28 percentage points</span>, while slightly improving performance on general video and audio-visual QA benchmarks.
           </p>
-          
-
         </div>
       </div>
     </div>
@@ -323,34 +323,26 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-sixths">
 
-        <h2 class="title is-3">Why Do We Need Audio Interventions?</h2>
+        <h2 class="title is-3 section-title">Why Do We Need Audio Interventions?</h2>
 
-        <div class="content has-text-justified" style="margin-bottom: 0.75em;">
+        <div class="content has-text-justified" style="margin-top: 1.5rem; margin-bottom: 0.75em;">
           <p>
-            THUD keeps the visual event fixed but changes the audio condition. 
-            If a model truly verifies sound, its answer should change with the audio track. 
+            THUD keeps the visual event fixed but changes the audio condition.
+            If a model truly verifies sound, its answer should change with the audio track.
             Instead, many video-capable multimodal models still describe the sound implied by the visuals,
             revealing missed temporal shifts, hallucinated audio, and visual-biased predictions.
           </p>
         </div>
 
-        <div style="overflow: hidden; margin-top: 0.5em;">
-          <img 
-            src="static/images/fig2-2.png" 
-            width="100%" 
-            alt="Representative THUD failure cases"
-            style="display: block; transform: translateY(-130px); margin-bottom: -130px;"
-          />
+        <div class="figure-card is-pad">
+          <img src="static/images/fig2-2.png" alt="Representative THUD failure cases"/>
         </div>
 
-        <p class="is-size-6 has-text-centered" style="margin-top: 0.75em;">
+        <p class="figure-caption">
           <b>Representative THUD failures.</b>
-          <span style="background-color: #e8f1ff; color: #1f5fbf; padding: 2px 5px; border-radius: 4px;"><strong>Shift</strong></span>
-          tests temporal synchronization,
-          <span style="background-color: #f0e8ff; color: #6b35c9; padding: 2px 5px; border-radius: 4px;"><strong>Mute</strong></span>
-          tests audio existence, and
-          <span style="background-color: #e8f6e8; color: #2f8f3a; padding: 2px 5px; border-radius: 4px;"><strong>Swap</strong></span>
-          tests audio-visual consistency.
+          <span class="chip chip-shift">Shift</span> tests temporal synchronization,
+          <span class="chip chip-mute">Mute</span> tests audio existence, and
+          <span class="chip chip-swap">Swap</span> tests audio-visual consistency.
         </p>
 
       </div>
@@ -366,9 +358,9 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-sixths">
 
-        <h2 class="title is-3">THUD: Counterfactual Audio Interventions</h2>
+        <h2 class="title is-3 section-title">THUD: Counterfactual Audio Interventions</h2>
 
-        <div class="content has-text-justified" style="margin-bottom: 1.25em;">
+        <div class="content has-text-justified" style="margin-top: 1.5rem; margin-bottom: 1.25em;">
           <p>
             THUD converts naturally correlated videos into counterfactual probes. We annotate visual
             and acoustic events, then apply Shift, Mute, and Swap interventions to test whether models
@@ -376,9 +368,11 @@
           </p>
         </div>
 
-        <img src="static/images/fig9_pipeline.png" width="100%" alt="THUD annotation and intervention pipeline"/>
+        <div class="figure-card is-pad">
+          <img src="static/images/fig9_pipeline.png" alt="THUD annotation and intervention pipeline"/>
+        </div>
 
-        <p class="is-size-6 has-text-centered" style="margin-top: 0.75em;">
+        <p class="figure-caption">
           <b>THUD pipeline.</b>
           Event-time annotation enables controlled interventions that expose visual-semantic shortcuts.
         </p>
@@ -395,23 +389,24 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-sixths">
 
-        <h2 class="title is-3">Do Current Models Truly Verify Audio?</h2>
+        <h2 class="title is-3 section-title">Do Current Models Truly Verify Audio?</h2>
 
-        <div class="content has-text-justified" style="margin-bottom: 1em;">
+        <div class="content has-text-justified" style="margin-top: 1.5rem; margin-bottom: 1em;">
           <p>
             We compare each model on original videos and counterfactual audio interventions.
-            Large drops under 
-            <span style="background-color: #e8f1ff; color: #1f5fbf; padding: 2px 5px; border-radius: 4px;"><strong>Shift</strong></span>,
-            <span style="background-color: #f0e8ff; color: #6b35c9; padding: 2px 5px; border-radius: 4px;"><strong>Mute</strong></span>,
-            and
-            <span style="background-color: #e8f6e8; color: #2f8f3a; padding: 2px 5px; border-radius: 4px;"><strong>Swap</strong></span>
+            Large drops under
+            <span class="chip chip-shift">Shift</span>,
+            <span class="chip chip-mute">Mute</span>, and
+            <span class="chip chip-swap">Swap</span>
             reveal shortcut reliance.
           </p>
         </div>
 
-        <img src="static/images/tab1.png" width="100%" alt="Paired diagnostic accuracy"/>
+        <div class="figure-card is-pad">
+          <img src="static/images/tab1.png" alt="Paired diagnostic accuracy"/>
+        </div>
 
-        <p class="is-size-6 has-text-centered" style="margin-top: 0.75em;">
+        <p class="figure-caption">
           <b>Diagnostic accuracy.</b>
           Models appear strong on natural videos but often fail when audio-visual correlations are broken.
         </p>
@@ -428,18 +423,20 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-sixths">
 
-        <h2 class="title is-3">Errors Collapse Toward a Synced Default</h2>
+        <h2 class="title is-3 section-title">Errors Collapse Toward a Synced Default</h2>
 
-        <div class="content has-text-justified" style="margin-bottom: 1em;">
+        <div class="content has-text-justified" style="margin-top: 1.5rem; margin-bottom: 1em;">
           <p>
             The failures are systematic: models often assume the audio is synchronized and visually plausible,
             even when it is muted, swapped, or shifted.
           </p>
         </div>
 
-        <img src="static/images/fig4.png" width="100%" alt="Prediction breakdown"/>
+        <div class="figure-card is-pad">
+          <img src="static/images/fig4.png" alt="Prediction breakdown"/>
+        </div>
 
-        <p class="is-size-6 has-text-centered" style="margin-top: 0.75em;">
+        <p class="figure-caption">
           <b>Prediction breakdown.</b>
           Errors concentrate around hallucinated synchronized audio rather than random mistakes.
         </p>
@@ -456,18 +453,20 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-sixths">
 
-        <h2 class="title is-3">Can Targeted Alignment Fix the Shortcut?</h2>
+        <h2 class="title is-3 section-title">Can Targeted Alignment Fix the Shortcut?</h2>
 
-        <div class="content has-text-justified" style="margin-bottom: 1em;">
+        <div class="content has-text-justified" style="margin-top: 1.5rem; margin-bottom: 1em;">
           <p>
             We train Qwen3-Omni with intervention-derived preferences and general video data.
             Our final recipe improves temporal grounding while preserving general video capability.
           </p>
         </div>
 
-        <img src="static/images/tab2.png" width="100%" alt="Alignment recipe comparison"/>
+        <div class="figure-card is-pad">
+          <img src="static/images/tab2.png" alt="Alignment recipe comparison"/>
+        </div>
 
-        <p class="is-size-6 has-text-centered" style="margin-top: 0.75em;">
+        <p class="figure-caption">
           <b>Alignment recipe comparison.</b>
           Preference alignment mitigates temporal shortcut reliance without an alignment tax.
         </p>
@@ -483,13 +482,16 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-sixths">
 
-        <h2 class="title is-3">Data Release Note</h2>
+        <h2 class="title is-3 section-title">Data Release</h2>
 
-        <div class="content has-text-justified">
-          <p>
-            We are currently organizing the Training data and Thud evaluation data for public release.
-            The dataset will be made available soon. Please check back for updates.
-          </p>
+        <div class="callout" style="margin-top: 1.8rem;">
+          <div class="callout-icon">🚧</div>
+          <div class="callout-body">
+            <span class="callout-badge">Coming Soon</span>
+            <h4>Training &amp; THUD evaluation data</h4>
+            <p>We are currently organizing the training data and the THUD evaluation set for public release.
+              The full dataset will be made available shortly — check back for updates.</p>
+          </div>
         </div>
 
       </div>
@@ -520,15 +522,20 @@
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><bibtexcode>
-    @inproceedings{wen2026whenvisionspeaksforsound,
-      title={When Vision Speaks for Sound}, 
-      author={Xiaofei Wen and Wenjie Jacky Mo and Xingyu Fu and Rui Cai and Tinghui Zhu and Wendi Li and Yanan Xie and Muhao Chen and Peng Qi},
-      year={2026},
-      booktitle = {Advances in Neural Information Processing Systems}
-}
-      </bibtexcode></pre>
+      <h2 class="title is-3 section-title">BibTeX</h2>
+      <div class="bibtex-block" style="margin-top: 1.5rem;">
+        <button class="bibtex-copy" id="bibtex-copy-btn" type="button" aria-label="Copy BibTeX to clipboard">
+          <span class="icon" style="margin-right: 4px;"><i class="far fa-copy"></i></span>
+          <span class="bibtex-copy-label">Copy</span>
+        </button>
+<pre><bibtexcode id="bibtex-code">@inproceedings{wen2026whenvisionspeaksforsound,
+  title     = {When Vision Speaks for Sound},
+  author    = {Xiaofei Wen and Wenjie Jacky Mo and Xingyu Fu and Rui Cai and
+               Tinghui Zhu and Wendi Li and Yanan Xie and Muhao Chen and Peng Qi},
+  year      = {2026},
+  booktitle = {Advances in Neural Information Processing Systems}
+}</bibtexcode></pre>
+      </div>
     </div>
 </section>
 <!--End BibTex citation -->
@@ -572,12 +579,12 @@
     <script src="./static/js/csv_to_html_table.js"></script>
     <script>
       CsvToHtmlTable.init({
-        csv_path: 'static/val_result.csv', 
-        element: 'table-container', 
+        csv_path: 'static/val_result.csv',
+        element: 'table-container',
         allow_download: true,
         csv_options: {separator: ',', delimiter: '"'},
         datatables_options: {
-          "paging": false, 
+          "paging": false,
           "order": [[1, 'desc']],
           "columnDefs": [
           {targets: [0], className: 'dt-left', className: 'dt-head-left'},
@@ -585,6 +592,46 @@
         }
       });
     </script>
-  
+
+    <script>
+      // BibTeX one-click copy
+      (function () {
+        var btn = document.getElementById('bibtex-copy-btn');
+        var code = document.getElementById('bibtex-code');
+        if (!btn || !code) return;
+        var label = btn.querySelector('.bibtex-copy-label');
+        btn.addEventListener('click', function () {
+          var text = code.innerText;
+          var done = function () {
+            btn.classList.add('copied');
+            if (label) label.textContent = 'Copied!';
+            setTimeout(function () {
+              btn.classList.remove('copied');
+              if (label) label.textContent = 'Copy';
+            }, 1600);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done).catch(function () {
+              var ta = document.createElement('textarea');
+              ta.value = text;
+              document.body.appendChild(ta);
+              ta.select();
+              try { document.execCommand('copy'); } catch (e) {}
+              document.body.removeChild(ta);
+              done();
+            });
+          } else {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta);
+            done();
+          }
+        });
+      })();
+    </script>
+
   </body>
   </html>

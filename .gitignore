@@ -1,0 +1,10 @@
+# Local backups of image originals (kept on disk, not tracked).
+static/images/*.original.png
+static/images/*.original.jpg
+static/images/*.original.svg
+
+# Common cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
