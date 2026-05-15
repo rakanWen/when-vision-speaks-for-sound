@@ -37,20 +37,21 @@
   <link rel="stylesheet" href="./static/css/dataTables.bulma.css">
   <link rel="icon" href="./static/images/lvr_icon.png">
 
-  <style>
+ <style>
   .sup-affil-d,
   .sup-affil-p,
   .sup-affil-w,
   .sup-affil-u {
-    font-family: "Times New Roman", Times, serif;
-    font-style: italic;
-    font-weight: 700;
-    font-size: 0.79em;
+    font-family: inherit; 
+    font-style: normal;   
+    font-weight: 500;     
+    font-size: 0.75em;    
     vertical-align: super;
-    margin-left: 1px;
+    margin-left: 2px;    
     position: relative;
-    top: -0.06em;
+    top: -0.1em;       
   }
+
 
   .sup-affil-d { color: #0B3A75; }
   .sup-affil-p { color: #E77500; }
@@ -173,7 +174,7 @@
                   <div class="content has-text-centered" style="margin-top: 1.2rem;">
                     <div class="publication-links">
                       <span class="link-block">
-                        <a href="https://arxiv.org/abs/2510.03485" target="_blank"
+                        <a href="https://github.com/rakanWen/wvs-code/blob/main/wvs-paper.pdf" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="ai ai-arxiv"></i>
@@ -520,12 +521,11 @@
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><bibtexcode>
-    @misc{wen2026whenvisionspeaksforsound,
+    @inproceedings{wen2026whenvisionspeaksforsound,
       title={When Vision Speaks for Sound}, 
       author={Xiaofei Wen and Wenjie Jacky Mo and Xingyu Fu and Rui Cai and Tinghui Zhu and Wendi Li and Yanan Xie and Muhao Chen and Peng Qi},
       year={2026},
-      archivePrefix={arXiv},
-      url={To Add Soon}, 
+      booktitle = {Advances in Neural Information Processing Systems}
 }
       </bibtexcode></pre>
     </div>
